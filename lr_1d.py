@@ -18,12 +18,18 @@ Y = np.array(Y)
 plt.scatter(X, Y)
 plt.show()
 
+# find regression a and b
+# `dot()` is matrix multiplication (dot product)
+# .mean(), .sum(), .dot() are functions embedded in numpy
+
 denominator = X.dot(X) - X.mean() * X.sum()
 a = ( X.dot(Y) - Y.mean()*X.sum() ) / denominator
 b = ( Y.mean() * X.dot(X) - X.mean() * X.dot(Y) ) / denominator
 
 # let's calculate the predicted Y
 Yhat = a*X + b
+print("a:", a)
+print("b:", b)
 
 # let's plot everything together to make sure it worked
 plt.scatter(X, Y)
